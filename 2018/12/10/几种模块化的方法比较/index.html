@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="现在移动的模块化的方法比较多，我们知道业务代码我们设计是尽可能的高内聚，低耦合，但是业务代码模块之间的调用时不可避免的，比如店铺模块和商品模块之间的调用，对于oc来说，想要调用必须要导入.h文件，这样模块之间的相互耦合就会比较多，今天研究一下iOS端三种解耦合的方式。  MGJRouter这种是蘑菇街提出的方案  12345//业务提供方+ (void)registerURLPattern:(NS">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-10T15:06:23.126Z">
+<meta property="og:updated_time" content="2018-12-10T15:29:52.359Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="几种模块化的方法比较">
 <meta name="twitter:description" content="现在移动的模块化的方法比较多，我们知道业务代码我们设计是尽可能的高内聚，低耦合，但是业务代码模块之间的调用时不可避免的，比如店铺模块和商品模块之间的调用，对于oc来说，想要调用必须要导入.h文件，这样模块之间的相互耦合就会比较多，今天研究一下iOS端三种解耦合的方式。  MGJRouter这种是蘑菇街提出的方案  12345//业务提供方+ (void)registerURLPattern:(NS">
@@ -180,7 +180,7 @@
 <li>MGJRouter<br><br>这种是蘑菇街提出的方案</li>
 </ul>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//业务提供方</span></span><br><span class="line">+ (void)registerURLPattern:(NSString *)URLPattern toHandler:(MGJRouterHandler)handler;&lt;/br&gt;</span><br><span class="line"><span class="comment">//业务使用方</span></span><br><span class="line">+ (<span class="keyword">void</span>)openURL:(<span class="built_in">NSString</span> *)URL completion:(<span class="keyword">void</span> (^)(<span class="keyword">id</span> result))completion;</span><br><span class="line">+ (<span class="keyword">void</span>)openURL:(<span class="built_in">NSString</span> *)URL withUserInfo:(<span class="built_in">NSDictionary</span> *)userInfo completion:(<span class="keyword">void</span> (^)(<span class="keyword">id</span> result))completion;</span><br></pre></td></tr></table></figure>
-<p>我们可以看到他是以URL作为标识来进行模块间的调用，这样势必有一个key-value表来储存这个URLPattern-handler对应的关系，这种方式以这个库为中间件，我们的两个模块都依赖这个中间件，本来两个模块间的调用，现在成了每个模块都是和中间件来联系，两个模块间的耦合关系就解开了，这个库的设计思想来自于前端的url,坏处是URLPattern-handler这种方式的对应关系调用不够语义化，debug可能不是很方便。而且有些人抨击这种方式在内存中有一个key-value表，而且随这项目的增大，这个表会越来越大，占用内存会越来越多。</p>
+<p>我们可以看到他是以URL作为标识来进行模块间的调用，这样势必有一个key-value表来储存这个URLPattern-handler对应的关系，这种方式以这个库为中间件，我们的两个模块都依赖这个中间件，本来两个模块间的调用，现在成了每个模块都是和中间件来联系，两个模块间的耦合关系就解开了，这个库的设计思想来自于前端的url,坏处是URLPattern-handler这种方式的对应关系调用有点硬编码，debug可能不是很方便。而且有些人抨击这种方式在内存中有一个key-value表，而且随这项目的增大，这个表会越来越大，占用内存会越来越多。</p>
 <ul>
 <li>CTMediator</li>
 </ul>
