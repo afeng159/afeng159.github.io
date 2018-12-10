@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>欢迎进入我的博客 | Hexo</title>
+  <title>几种模块化的方法比较 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="现在博客还很荒芜">
+  <meta name="description" content="现在移动的模块化的方法比较多，我们知道业务代码我们设计是尽可能的高内聚，低耦合，但是业务代码模块之间的调用时不可避免的，比如店铺模块和商品模块之间的调用，对于oc来说，想要调用必须要导入.h文件，这样模块之间的相互耦合就会比较多，今天研究一下iOS端三种解耦合的方式。  MGJRouter这种是蘑菇街提出的方案  12345//业务提供方+ (void)registerURLPattern:(NS">
+<meta name="keywords" content="随笔">
 <meta property="og:type" content="article">
-<meta property="og:title" content="欢迎进入我的博客">
-<meta property="og:url" content="http://yoursite.com/2018/12/09/xin/index.html">
+<meta property="og:title" content="几种模块化的方法比较">
+<meta property="og:url" content="http://yoursite.com/2018/12/10/几种模块化的方法比较/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="现在博客还很荒芜">
+<meta property="og:description" content="现在移动的模块化的方法比较多，我们知道业务代码我们设计是尽可能的高内聚，低耦合，但是业务代码模块之间的调用时不可避免的，比如店铺模块和商品模块之间的调用，对于oc来说，想要调用必须要导入.h文件，这样模块之间的相互耦合就会比较多，今天研究一下iOS端三种解耦合的方式。  MGJRouter这种是蘑菇街提出的方案  12345//业务提供方+ (void)registerURLPattern:(NS">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-09T15:59:02.128Z">
+<meta property="og:updated_time" content="2018-12-10T15:06:23.126Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="欢迎进入我的博客">
-<meta name="twitter:description" content="现在博客还很荒芜">
+<meta name="twitter:title" content="几种模块化的方法比较">
+<meta name="twitter:description" content="现在移动的模块化的方法比较多，我们知道业务代码我们设计是尽可能的高内聚，低耦合，但是业务代码模块之间的调用时不可避免的，比如店铺模块和商品模块之间的调用，对于oc来说，想要调用必须要导入.h文件，这样模块之间的相互耦合就会比较多，今天研究一下iOS端三种解耦合的方式。  MGJRouter这种是蘑菇街提出的方案  12345//业务提供方+ (void)registerURLPattern:(NS">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -154,27 +155,42 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-xin" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-几种模块化的方法比较" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      欢迎进入我的博客
+      几种模块化的方法比较
     </h1>
   
 
         
-        <a href="/2018/12/09/xin/" class="archive-article-date">
-  	<time datetime="2018-12-09T15:56:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-09</time>
+        <a href="/2018/12/10/几种模块化的方法比较/" class="archive-article-date">
+  	<time datetime="2018-12-10T13:57:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-10</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>现在博客还很荒芜</p>
+        <p>现在移动的模块化的方法比较多，我们知道业务代码我们设计是尽可能的高内聚，低耦合，但是业务代码模块之间的调用时不可避免的，比如店铺模块和商品模块之间的调用，对于oc来说，想要调用必须要导入.h文件，这样模块之间的相互耦合就会比较多，今天研究一下iOS端三种解耦合的方式。</p>
+<ul>
+<li>MGJRouter<br><br>这种是蘑菇街提出的方案</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//业务提供方</span></span><br><span class="line">+ (void)registerURLPattern:(NSString *)URLPattern toHandler:(MGJRouterHandler)handler;&lt;/br&gt;</span><br><span class="line"><span class="comment">//业务使用方</span></span><br><span class="line">+ (<span class="keyword">void</span>)openURL:(<span class="built_in">NSString</span> *)URL completion:(<span class="keyword">void</span> (^)(<span class="keyword">id</span> result))completion;</span><br><span class="line">+ (<span class="keyword">void</span>)openURL:(<span class="built_in">NSString</span> *)URL withUserInfo:(<span class="built_in">NSDictionary</span> *)userInfo completion:(<span class="keyword">void</span> (^)(<span class="keyword">id</span> result))completion;</span><br></pre></td></tr></table></figure>
+<p>我们可以看到他是以URL作为标识来进行模块间的调用，这样势必有一个key-value表来储存这个URLPattern-handler对应的关系，这种方式以这个库为中间件，我们的两个模块都依赖这个中间件，本来两个模块间的调用，现在成了每个模块都是和中间件来联系，两个模块间的耦合关系就解开了，这个库的设计思想来自于前端的url,坏处是URLPattern-handler这种方式的对应关系调用不够语义化，debug可能不是很方便。而且有些人抨击这种方式在内存中有一个key-value表，而且随这项目的增大，这个表会越来越大，占用内存会越来越多。</p>
+<ul>
+<li>CTMediator</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//业务提供方</span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Target_A</span> : <span class="title">NSObject</span></span></span><br><span class="line">- (<span class="built_in">UIViewController</span> *)Action_nativeFetchDetailViewController:(<span class="built_in">NSDictionary</span> *)params;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Target_A</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="built_in">UIViewController</span> *)Action_nativeFetchDetailViewController:(<span class="built_in">NSDictionary</span> *)params</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 因为action是从属于ModuleA的，所以action直接可以使用ModuleA里的所有声明</span></span><br><span class="line">    DemoModuleADetailViewController *viewController = [[DemoModuleADetailViewController alloc] init];</span><br><span class="line">    viewController.valueLabel.text = params[<span class="string">@"key"</span>];</span><br><span class="line">    <span class="keyword">return</span> viewController;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//中间件</span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">CTMediator</span> (<span class="title">CTMediatorModuleAActions</span>)</span></span><br><span class="line">- (<span class="built_in">UIViewController</span> *)<span class="built_in">CTMediator_viewControllerForDetail</span>;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">CTMediator</span> (<span class="title">CTMediatorModuleAActions</span>)</span></span><br><span class="line"></span><br><span class="line">- (<span class="built_in">UIViewController</span> *)<span class="built_in">CTMediator_viewControllerForDetail</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">UIViewController</span> *viewController = [<span class="keyword">self</span> performTarget:kCTMediatorTargetA</span><br><span class="line">                                                    action:kCTMediatorActionNativFetchDetailViewController</span><br><span class="line">                                                    params:@&#123;<span class="string">@"key"</span>:<span class="string">@"value"</span>&#125;</span><br><span class="line">                                         shouldCacheTarget:<span class="literal">NO</span></span><br><span class="line">                                        ];</span><br><span class="line">    <span class="keyword">if</span> ([viewController isKindOfClass:[<span class="built_in">UIViewController</span> <span class="keyword">class</span>]]) &#123;</span><br><span class="line">        <span class="keyword">return</span> viewController;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> [[<span class="built_in">UIViewController</span> alloc] init];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//业务使用方  </span></span><br><span class="line"><span class="built_in">UIViewController</span> *viewController = [[<span class="built_in">CTMediator</span> sharedInstance] <span class="built_in">CTMediator_viewControllerForDetail</span>];</span><br></pre></td></tr></table></figure>
+<p>这是一种target-action的方式，具体步骤是业务提供方提供一个类来暴露服务，在CTMediator中建立分类，然后在分类的方法中通过run-time来获取到业务提供方的那个暴露类及暴露的方法，执行，业务使用方依赖这个CTMediator中间件，调用他的分类方法，这种模式做到了业务提供方和中间件的分离，他们之间没有任何依赖，但是这个中间件的分类肯定会因为服务提供的越来越多而越来越难管理，毕竟他和业务提供方是通过硬编码的方式来链接的，一般这个中间件和他的分类会单独放在一个repo中，业务提供方如果要增加或者修改所提供的服务，都必须新增或者修改自己的业务提供类，当新增的时候，还要去这个中间件的repo中增加分类方法。这种方式不是非常的推荐。</p>
+<ul>
+<li>BeeHive<br><br>这是阿里出的一种模块化方案(现在只讨论他的模块解构方案，不讨论他的模块生命周期管理功能)</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//业务提供者</span></span><br><span class="line">- (<span class="keyword">void</span>)registerService:(Protocol *)service implClass:(Class)implClass;</span><br><span class="line"><span class="comment">//使用方</span></span><br><span class="line"><span class="keyword">id</span>&lt;TradeServiceProtocol&gt; obj = [[BeeHive shareInstance] createService:<span class="class"><span class="keyword">@protocol</span>(<span class="title">TradeServiceProtocol</span>)];</span></span><br></pre></td></tr></table></figure>
+<p>上面只是列举了一种方式，他还可以通过plist或者宏的方式也可以来注册服务。<br><br>这是一种  protocol—impl 的方式. 在框架内部通过维护一个 protocol–impl的key-value表来调用功能。这种方式比蘑菇街的方式好的一点是没有硬编码，在我们debug或者阅读代码阶段有更好的体验。但是这个Protocol的管理是个问题，因为不管业务提供方还是业务使用方都需要依赖他。一般的做法是把这个所有的protocol 放在一个repo，然后让业务方和使用方都依赖他。还有就是这种方式 业务方和使用方都需要依赖BeeHive这个中间件，但其实这个不算什么大事。</p>
 
       
 
@@ -204,6 +220,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -254,7 +281,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/12/09/xin/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/12/10/几种模块化的方法比较/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -268,18 +295,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/12/10/几种模块化的方法比较/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          几种模块化的方法比较
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/12/09/TCP/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">TCP</div>
+    <a href="/2018/12/09/xin/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">欢迎进入我的博客</div>
       <i class="icon-circle-right"></i>
     </a>
   
