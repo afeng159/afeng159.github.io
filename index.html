@@ -152,6 +152,72 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-bridge" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/10/bridge/">__bridge</a>
+    </h1>
+  
+
+        
+        <a href="/2018/12/10/bridge/" class="archive-article-date">
+  	<time datetime="2018-12-10T15:45:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>__bridge 只是转换Objective-C 和 Core Foundation<br>不涉及管理权的转变</p>
+<p>__bridge_retained 将一个oc对象转为core foundation对象，并将管理管理权交给 core fundation对象  需要用CFRelease来销毁，当调用CFRelease时  oc对象也将被销毁</p>
+<p>__bridge_transfer 将一个core fundation对象的管理权交给oc对象的ARC来管理  当oc对象销毁的时候  core fundation对象也就被销毁了</p>
+<p>其实不管core fundation对象转化为oc对象  还是oc对象转化为core fundation对象  他们都是同一个对象，只是这个对象管理权的转变。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/12/10/bridge/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-几种模块化的方法比较" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
