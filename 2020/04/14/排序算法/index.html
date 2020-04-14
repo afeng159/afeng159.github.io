@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/4 | Hexo</title>
+  <title>排序算法 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2020/04/index.html">
+  <meta name="description" content="排序算法冒泡排序冒泡排序主要是我们将元素两两比较，按照大小顺序来将元素一个一个浮出水面。代码示例(从小到大排列)123456789BOOL hasChange = true;for (int i=0; i&amp;lt;array.count-1 &amp;amp;&amp;amp; hasChange; i++) &amp;#123;    hasChange = false;    for (int j=0; j&amp;lt;ar">
+<meta property="og:type" content="article">
+<meta property="og:title" content="排序算法">
+<meta property="og:url" content="http://yoursite.com/2020/04/14/排序算法/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="排序算法冒泡排序冒泡排序主要是我们将元素两两比较，按照大小顺序来将元素一个一个浮出水面。代码示例(从小到大排列)123456789BOOL hasChange = true;for (int i=0; i&amp;lt;array.count-1 &amp;amp;&amp;amp; hasChange; i++) &amp;#123;    hasChange = false;    for (int j=0; j&amp;lt;ar">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-04-14T14:45:21.169Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="排序算法">
+<meta name="twitter:description" content="排序算法冒泡排序冒泡排序主要是我们将元素两两比较，按照大小顺序来将元素一个一个浮出水面。代码示例(从小到大排列)123456789BOOL hasChange = true;for (int i=0; i&amp;lt;array.count-1 &amp;amp;&amp;amp; hasChange; i++) &amp;#123;    hasChange = false;    for (int j=0; j&amp;lt;ar">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,103 +154,160 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-排序算法" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      排序算法
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/14/排序算法/" class="archive-article-date">
+
+        
+        <a href="/2020/04/14/排序算法/" class="archive-article-date">
   	<time datetime="2020-04-14T14:44:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/14/排序算法/">排序算法</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h2><h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p>冒泡排序主要是我们将元素两两比较，按照大小顺序来将元素一个一个浮出水面。<br>代码示例(从小到大排列)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">BOOL hasChange = true;</span><br><span class="line">for (int i=0; i&lt;array.count-1 &amp;&amp; hasChange; i++) &#123;</span><br><span class="line">    hasChange = false;</span><br><span class="line">    for (int j=0; j&lt;array.count-1-i; j++) &#123;            if ([array[j] integerValue] &gt; [array[j+1] integerValue]) &#123;</span><br><span class="line">            [array exchangeObjectAtIndex:j    withObjectAtIndex:j+1];</span><br><span class="line">                hasChange = true;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>空间复杂度 是0(1),时间复杂度是0(n2)</p>
+<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><p>插入排序的核心是假定前面的是有序数组，我把后面的数据插入进去，全部插入完，整个数组就有序了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">for (int i=1; i&lt;array.count; i++) &#123;</span><br><span class="line">      </span><br><span class="line">       NSNumber *temp = array[i];</span><br><span class="line">       int j=i-1;</span><br><span class="line">       for (; j&gt;=0; j--) &#123;</span><br><span class="line">           //这个j代表的就是有序数组，i代表的是一个变量，要插入j这个有序数组</span><br><span class="line">           </span><br><span class="line">           //这个判断是需要看temp这个变量排在有序是数组那个位置，先将大于temp的都往后移一位，发现了temp真正的位置就break，将temp放进去。</span><br><span class="line">           if ([array[j] integerValue] &gt; [temp integerValue]) &#123;</span><br><span class="line">               array[j+1] = array[j];</span><br><span class="line">           &#125;else&#123;</span><br><span class="line">               break;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       array[j+1] = temp;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><p>快速排序用的是分治思想，将一个数据筛选为两个数组，核心是找到筛选的基准值的位置，将其放在该位置上，这个是这个排序的核心，可用用在一些无序数组中求第k大或者第K小的的算法题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">//这里默认数组最后一位为基准值,找他的位置，并塞进去</span><br><span class="line">- (NSInteger)findIndexInArray:(NSMutableArray *)array left:(NSInteger)left right:(NSInteger)right&#123;</span><br><span class="line">    NSInteger i,j;</span><br><span class="line">    for (i=left,j=left; j&lt;right; j++) &#123;</span><br><span class="line">        if ([array[j] integerValue]&lt;=[array[right] integerValue]) &#123;</span><br><span class="line">            [array exchangeObjectAtIndex:i++ withObjectAtIndex:j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    [array exchangeObjectAtIndex:i withObjectAtIndex:right];</span><br><span class="line">    return i;</span><br><span class="line">&#125;</span><br><span class="line">//这里做分治，找到基准值  分为两个小的，知道左位置和右位置为一个</span><br><span class="line">- (void)quickSort:(NSMutableArray *)array andLeft:(NSInteger)left</span><br><span class="line">         andRight:(NSInteger)right&#123;</span><br><span class="line">    if (left &gt;= right) &#123;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    NSInteger index = [self findIndexInArray:array left:left right:right];</span><br><span class="line">    [self quickSort:array andLeft:left andRight:index-1];</span><br><span class="line">    [self quickSort:array andLeft:index+1 andRight:right];</span><br><span class="line">     </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><p>归并排序的核心思想也是分治，核心是怎么去合并两个排好序的数组，这个有些算法可以用到，想合并两个有序数组这种题目<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">// K 是当前数组，从最左边开始，通过比较两个有序数组, 一个一个填值</span><br><span class="line"></span><br><span class="line">//两个指针分别从第一个有序数组的开发 和  第二个有序数组的开始开始比较 那个比较小就填入k在的位置，并且指针往后移动一位，再次比较。</span><br><span class="line">当比较完一个有序数组，及 i &gt; mid  或者 j &gt; right 说明有一个有序数组已经全部处理完了，剩余就是另一个有序数组的顺序填入。</span><br><span class="line">- (void)merge:(NSMutableArray *)array andLeft:(NSInteger)left</span><br><span class="line">          mid:(NSInteger)mid right:(NSInteger)right&#123;</span><br><span class="line">    NSMutableArray *copy = [array mutableCopy];</span><br><span class="line">    NSInteger k = left, i=left , j=mid+1;</span><br><span class="line">    while (k&lt;=right) &#123;</span><br><span class="line">        if (i &gt; mid) &#123;</span><br><span class="line">            array[k++] = copy[j++];</span><br><span class="line">        &#125;else if(j &gt; right)&#123;</span><br><span class="line">            array[k++] = copy[i++];</span><br><span class="line">        &#125;else if(copy[j] &lt; copy[i])&#123;</span><br><span class="line">            array[k++] = copy[j++];</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            array[k++] = copy[i++];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">//求中间的位置，然后分成两个有序数组，最后合并。</span><br><span class="line">- (void)sort:(NSMutableArray *)array andLeft:(NSInteger)left</span><br><span class="line">         andRight:(NSInteger)right&#123;</span><br><span class="line">    if (left &gt;= right) &#123;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    NSInteger mid = left + (right-left)/2;</span><br><span class="line">    [self sort:array andLeft:left andRight:mid];</span><br><span class="line">    [self sort:array andLeft:mid+1 andRight:right];</span><br><span class="line">    [self merge:array andLeft:left mid:mid right:right];</span><br><span class="line">   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/14/排序算法/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/13/数据库事务/" class="archive-article-date">
-  	<time datetime="2020-04-13T14:44:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-13</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/04/13/数据库事务/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数据库事务</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/13/数据库事务/">数据库事务</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/13/iOS中锁的一些介绍/" class="archive-article-date">
-  	<time datetime="2020-04-13T14:37:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/13/iOS中锁的一些介绍/">iOS中锁的一些介绍</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -269,8 +330,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
