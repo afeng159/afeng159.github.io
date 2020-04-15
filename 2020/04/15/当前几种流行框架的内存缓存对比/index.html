@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | Hexo</title>
+  <title>当前几种流行框架的内存缓存对比 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2020/index.html">
+  <meta name="description" content="内存缓存比较 NSCache官方提供的系统类，用法类似于字典，是一个线程安全的类，对对象是用了强引用,系统会自动的做内存管理，缺点是没法对内存中的清除策略做一定的控制。清除是按队列的方式清除 先进先出。 AFnetworikng其中的AFAutoPurgingImageCache 类是图片缓存，里面涉及到内存缓存。我们看其中的两个东西，一个是他的缓存的数据结构，一个是清除策略。 123456789">
+<meta property="og:type" content="article">
+<meta property="og:title" content="当前几种流行框架的内存缓存对比">
+<meta property="og:url" content="http://yoursite.com/2020/04/15/当前几种流行框架的内存缓存对比/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="内存缓存比较 NSCache官方提供的系统类，用法类似于字典，是一个线程安全的类，对对象是用了强引用,系统会自动的做内存管理，缺点是没法对内存中的清除策略做一定的控制。清除是按队列的方式清除 先进先出。 AFnetworikng其中的AFAutoPurgingImageCache 类是图片缓存，里面涉及到内存缓存。我们看其中的两个东西，一个是他的缓存的数据结构，一个是清除策略。 123456789">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-04-15T08:23:28.426Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="当前几种流行框架的内存缓存对比">
+<meta name="twitter:description" content="内存缓存比较 NSCache官方提供的系统类，用法类似于字典，是一个线程安全的类，对对象是用了强引用,系统会自动的做内存管理，缺点是没法对内存中的清除策略做一定的控制。清除是按队列的方式清除 先进先出。 AFnetworikng其中的AFAutoPurgingImageCache 类是图片缓存，里面涉及到内存缓存。我们看其中的两个东西，一个是他的缓存的数据结构，一个是清除策略。 123456789">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,130 +154,171 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-当前几种流行框架的内存缓存对比" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      当前几种流行框架的内存缓存对比
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/15/当前几种流行框架的内存缓存对比/" class="archive-article-date">
+
+        
+        <a href="/2020/04/15/当前几种流行框架的内存缓存对比/" class="archive-article-date">
   	<time datetime="2020-04-15T08:23:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-15</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/15/当前几种流行框架的内存缓存对比/">当前几种流行框架的内存缓存对比</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>内存缓存比较</p>
+<h3 id="NSCache"><a href="#NSCache" class="headerlink" title="NSCache"></a>NSCache</h3><p>官方提供的系统类，用法类似于字典，是一个线程安全的类，对对象是用了强引用,系统会自动的做内存管理，缺点是没法对内存中的清除策略做一定的控制。清除是按队列的方式清除 先进先出。</p>
+<h3 id="AFnetworikng"><a href="#AFnetworikng" class="headerlink" title="AFnetworikng"></a>AFnetworikng</h3><p>其中的<code>AFAutoPurgingImageCache</code> 类是图片缓存，里面涉及到内存缓存。<br>我们看其中的两个东西，一个是他的缓存的数据结构，一个是清除策略。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">@property (nonatomic, strong) NSMutableDictionary &lt;NSString* , AFCachedImage*&gt; *cachedImages;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- (instancetype)initWithMemoryCapacity:(UInt64)memoryCapacity preferredMemoryCapacity:(UInt64)preferredMemoryCapacity &#123;</span><br><span class="line">    if (self = [super init]) &#123;</span><br><span class="line">        self.memoryCapacity = memoryCapacity;</span><br><span class="line">        self.preferredMemoryUsageAfterPurge = preferredMemoryCapacity;</span><br><span class="line">        self.cachedImages = [[NSMutableDictionary alloc] init];</span><br><span class="line"></span><br><span class="line">        NSString *queueName = [NSString stringWithFormat:@&quot;com.alamofire.autopurgingimagecache-%@&quot;, [[NSUUID UUID] UUIDString]];</span><br><span class="line">        self.synchronizationQueue = dispatch_queue_create([queueName cStringUsingEncoding:NSASCIIStringEncoding], DISPATCH_QUEUE_CONCURRENT);</span><br><span class="line"></span><br><span class="line">        [[NSNotificationCenter defaultCenter]</span><br><span class="line">         addObserver:self</span><br><span class="line">         selector:@selector(removeAllImages)</span><br><span class="line">         name:UIApplicationDidReceiveMemoryWarningNotification</span><br><span class="line">         object:nil];</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    return self;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过属性定义及初试化方法，我们可知，他就是一个字典，里面放了一个对象.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">- (void)addImage:(UIImage *)image withIdentifier:(NSString *)identifier &#123;</span><br><span class="line">    dispatch_barrier_async(self.synchronizationQueue, ^&#123;</span><br><span class="line">        AFCachedImage *cacheImage = [[AFCachedImage alloc] initWithImage:image identifier:identifier];</span><br><span class="line"></span><br><span class="line">        AFCachedImage *previousCachedImage = self.cachedImages[identifier];</span><br><span class="line">        if (previousCachedImage != nil) &#123;</span><br><span class="line">            self.currentMemoryUsage -= previousCachedImage.totalBytes;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        self.cachedImages[identifier] = cacheImage;</span><br><span class="line">        self.currentMemoryUsage += cacheImage.totalBytes;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    dispatch_barrier_async(self.synchronizationQueue, ^&#123;</span><br><span class="line">        if (self.currentMemoryUsage &gt; self.memoryCapacity) &#123;</span><br><span class="line">            UInt64 bytesToPurge = self.currentMemoryUsage - self.preferredMemoryUsageAfterPurge;</span><br><span class="line">            NSMutableArray &lt;AFCachedImage*&gt; *sortedImages = [NSMutableArray arrayWithArray:self.cachedImages.allValues];</span><br><span class="line">            NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@&quot;lastAccessDate&quot;</span><br><span class="line">                                                                           ascending:YES];</span><br><span class="line">            [sortedImages sortUsingDescriptors:@[sortDescriptor]];</span><br><span class="line"></span><br><span class="line">            UInt64 bytesPurged = 0;</span><br><span class="line"></span><br><span class="line">            for (AFCachedImage *cachedImage in sortedImages) &#123;</span><br><span class="line">                [self.cachedImages removeObjectForKey:cachedImage.identifier];</span><br><span class="line">                bytesPurged += cachedImage.totalBytes;</span><br><span class="line">                if (bytesPurged &gt;= bytesToPurge) &#123;</span><br><span class="line">                    break ;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            self.currentMemoryUsage -= bytesPurged;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过放入一个缓存的方法，我们可以看到他的清除策略，用的是一个GCD的栏珊函数，做到线程的依赖，来解决字典的线程不安全性，然后通过时间排序，来删除最后一个函数,知道符合内存缓存的大小限制为止。</p>
+<h3 id="SDWebImageView"><a href="#SDWebImageView" class="headerlink" title="SDWebImageView"></a>SDWebImageView</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">interface SDImageCache ()</span><br><span class="line"></span><br><span class="line">#pragma mark - Properties</span><br><span class="line">@property (strong, nonatomic, nonnull) NSCache *memCache;</span><br><span class="line">@property (strong, nonatomic, nonnull) NSString *diskCachePath;</span><br><span class="line">@property (strong, nonatomic, nullable) NSMutableArray&lt;NSString *&gt; *customPaths;</span><br><span class="line">@property (SDDispatchQueueSetterSementics, nonatomic, nullable) dispatch_queue_t ioQueue;</span><br><span class="line"></span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">=====================================================</span><br><span class="line"></span><br><span class="line"> _memCache = [[AutoPurgeCache alloc] init];</span><br><span class="line"> </span><br><span class="line">=====================================================</span><br><span class="line">@interface AutoPurgeCache : NSCache</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">@implementation AutoPurgeCache</span><br><span class="line"></span><br><span class="line">- (nonnull instancetype)init &#123;</span><br><span class="line">    self = [super init];</span><br><span class="line">    if (self) &#123;</span><br><span class="line">#if SD_UIKIT</span><br><span class="line">        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeAllObjects) name:UIApplicationDidReceiveMemoryWarningNotification object:nil];</span><br><span class="line">#endif</span><br><span class="line">    &#125;</span><br><span class="line">    return self;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)dealloc &#123;</span><br><span class="line">#if SD_UIKIT</span><br><span class="line">    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidReceiveMemoryWarningNotification object:nil];</span><br><span class="line">#endif</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<p>从这个定义我们就可以看出 他的内存缓存<code>AutoPurgeCache</code>完全是 用的是封装系统的NSCache,只是加了一个通知.</p>
+<h3 id="YYCache"><a href="#YYCache" class="headerlink" title="YYCache"></a>YYCache</h3><p>我们再来看YYCache的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">@interface _YYLinkedMap : NSObject &#123;</span><br><span class="line">    @package</span><br><span class="line">    CFMutableDictionaryRef _dic; // do not set object directly</span><br><span class="line">    NSUInteger _totalCost;</span><br><span class="line">    NSUInteger _totalCount;</span><br><span class="line">    _YYLinkedMapNode *_head; // MRU, do not change it directly</span><br><span class="line">    _YYLinkedMapNode *_tail; // LRU, do not change it directly</span><br><span class="line">    BOOL _releaseOnMainThread;</span><br><span class="line">    BOOL _releaseAsynchronously;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@interface _YYLinkedMapNode : NSObject &#123;</span><br><span class="line">    @package</span><br><span class="line">    __unsafe_unretained _YYLinkedMapNode *_prev; // retained by dic</span><br><span class="line">    __unsafe_unretained _YYLinkedMapNode *_next; // retained by dic</span><br><span class="line">    id _key;</span><br><span class="line">    id _value;</span><br><span class="line">    NSUInteger _cost;</span><br><span class="line">    NSTimeInterval _time;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>可以看出<code>_YYLinkedMap</code>这是一个链表,<code>_YYLinkedMapNode</code>.<br>首先我们清楚一点，对于内存缓存的去除操作来说，我们要尽可能的快，这样我们性能才能好，而字典的去除操作是0(1),所以不管怎么变化，最终的存储都要落在字典上，但是如果只是字典，对于删除操作来说，我们需要一定的策略去清除内存，而字典是无序的,不管什么策略，肯定不是随机的，肯定是某种意义上的有序，所以，需要我们去在无序的字典中怎么去构建有序的一些东西，在AF中，我们可以看到，他给每个元素一个时间，然后将字典的所有value去排序，这样来构建一个有序，而YYCache就是通过链表的方式来构建有序。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">- (void)_trimToCost:(NSUInteger)costLimit &#123;</span><br><span class="line">    BOOL finish = NO;</span><br><span class="line">    pthread_mutex_lock(&amp;_lock);</span><br><span class="line">    if (costLimit == 0) &#123;</span><br><span class="line">        [_lru removeAll];</span><br><span class="line">        finish = YES;</span><br><span class="line">    &#125; else if (_lru-&gt;_totalCost &lt;= costLimit) &#123;</span><br><span class="line">        finish = YES;</span><br><span class="line">    &#125;</span><br><span class="line">    pthread_mutex_unlock(&amp;_lock);</span><br><span class="line">    if (finish) return;</span><br><span class="line">    </span><br><span class="line">    NSMutableArray *holder = [NSMutableArray new];</span><br><span class="line">    while (!finish) &#123;</span><br><span class="line">        if (pthread_mutex_trylock(&amp;_lock) == 0) &#123;</span><br><span class="line">            if (_lru-&gt;_totalCost &gt; costLimit) &#123;</span><br><span class="line">                _YYLinkedMapNode *node = [_lru removeTailNode];</span><br><span class="line">                if (node) [holder addObject:node];</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                finish = YES;</span><br><span class="line">            &#125;</span><br><span class="line">            pthread_mutex_unlock(&amp;_lock);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            usleep(10 * 1000); //10 ms</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if (holder.count) &#123;</span><br><span class="line">        dispatch_queue_t queue = _lru-&gt;_releaseOnMainThread ? dispatch_get_main_queue() : YYMemoryCacheGetReleaseQueue();</span><br><span class="line">        dispatch_async(queue, ^&#123;</span><br><span class="line">            [holder count]; // release in queue</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>就是一个while循环，去清除，他这里元素用的是一个_YYLinkedMap的插入和删除遵循了LRU 队列的规则。我们可以先看清除的代码。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">- (_YYLinkedMapNode *)removeTailNode &#123;</span><br><span class="line">    if (!_tail) return nil;</span><br><span class="line">    _YYLinkedMapNode *tail = _tail;</span><br><span class="line">    CFDictionaryRemoveValue(_dic, (__bridge const void *)(_tail-&gt;_key));</span><br><span class="line">    _totalCost -= _tail-&gt;_cost;</span><br><span class="line">    _totalCount--;</span><br><span class="line">    if (_head == _tail) &#123;</span><br><span class="line">        _head = _tail = nil;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        _tail = _tail-&gt;_prev;</span><br><span class="line">        _tail-&gt;_next = nil;</span><br><span class="line">    &#125;</span><br><span class="line">    return tail;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>是链表的操作，先看最后一个是不是第一个，是的话 直接置为nil就行，不是的话，将最后一个的前一个<code>_tail-&gt;_prev</code>  置为最后一个，然后取出最后一个的后一个<code>_tail-&gt;_next</code>.</p>
+<p>下面我们看下LRU队列相关代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">- (id)objectForKey:(id)key &#123;</span><br><span class="line">    if (!key) return nil;</span><br><span class="line">    pthread_mutex_lock(&amp;_lock);</span><br><span class="line">    _YYLinkedMapNode *node = CFDictionaryGetValue(_lru-&gt;_dic, (__bridge const void *)(key));</span><br><span class="line">    if (node) &#123;</span><br><span class="line">        node-&gt;_time = CACurrentMediaTime();</span><br><span class="line">        [_lru bringNodeToHead:node];</span><br><span class="line">    &#125;</span><br><span class="line">    pthread_mutex_unlock(&amp;_lock);</span><br><span class="line">    return node ? node-&gt;_value : nil;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)bringNodeToHead:(_YYLinkedMapNode *)node &#123;</span><br><span class="line">    if (_head == node) return;</span><br><span class="line">    </span><br><span class="line">    if (_tail == node) &#123;</span><br><span class="line">        _tail = node-&gt;_prev;</span><br><span class="line">        _tail-&gt;_next = nil;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        node-&gt;_next-&gt;_prev = node-&gt;_prev;</span><br><span class="line">        node-&gt;_prev-&gt;_next = node-&gt;_next;</span><br><span class="line">    &#125;</span><br><span class="line">    node-&gt;_next = _head;</span><br><span class="line">    node-&gt;_prev = nil;</span><br><span class="line">    _head-&gt;_prev = node;</span><br><span class="line">    _head = node;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>当我们访问了一个元素后，就会将这个元素放到lru队列的最前面</p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/15/当前几种流行框架的内存缓存对比/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/14/排序算法/" class="archive-article-date">
-  	<time datetime="2020-04-14T14:44:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/04/14/排序算法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">排序算法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/14/排序算法/">排序算法</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/13/数据库事务/" class="archive-article-date">
-  	<time datetime="2020-04-13T14:44:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/13/数据库事务/">数据库事务</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/13/iOS中锁的一些介绍/" class="archive-article-date">
-  	<time datetime="2020-04-13T14:37:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/13/iOS中锁的一些介绍/">iOS中锁的一些介绍</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -296,8 +341,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
